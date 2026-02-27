@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>THE UNEXPECTED ANSWERED PRAYER 💕</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to bottom right, #ffd6e8, #e0c3fc);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    background: white;
+    padding: 40px;
+    border-radius: 25px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+    max-width: 650px;
+    text-align: center;
+    position: relative;
+    animation: fadeIn 1s ease-in-out;
+}
+
+button {
+    padding: 12px 20px;
+    margin: 8px;
+    border: none;
+    border-radius: 25px;
+    background-color: #ff8fab;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #ff4d88;
+    transform: scale(1.1);
+}
+
+.progress-bar {
+    height: 8px;
+    background: #eee;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+    width: 0%;
+    background: #ff8fab;
+    transition: width 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.glow {
+    animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 5px #ff8fab; }
+    to { text-shadow: 0 0 20px #ff4d88; }
+}
+
+.confetti {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: pink;
+    animation: fall 3s linear infinite;
+}
+
+@keyframes fall {
+    from { transform: translateY(-100vh); }
+    to { transform: translateY(100vh); }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Background Music -->
+<iframe width="0" height="0"
+src="https://www.youtube.com/embed/6JHu3b-pbh8?autoplay=1&loop=1&playlist=6JHu3b-pbh8"
+allow="autoplay">
+</iframe>
+
+<div class="container">
+
+<div id="game">
+
+<div class="progress-bar">
+<div class="progress" id="progress"></div>
+</div>
+
+<h2>✨ The Prophecy of Us ✨</h2>
+<p>Ruth Muthoni Maina… destiny is calling 💕</p>
+<button onclick="nextStage()">Begin Quest 🌸</button>
+
+</div>
+</div>
+
+<script>
+let stage = 0;
+let translated = false;
+
+function updateProgress(){
+    const progressBar = document.getElementById("progress");
+    if(progressBar){
+        progressBar.style.width = (stage * 33) + "%";
+    }
+}
+
+function nextStage(){
+    stage++;
+    updateProgress();
+
+    const game = document.getElementById("game");
+
+    if(stage === 1){
+        game.innerHTML = `
+        <div class="progress-bar">
+            <div class="progress" style="width:33%"></div>
+        </div>
+        <h3>Chapter 1 🌷</h3>
+        <p>What makes friendship eternal?</p>
+        <button onclick="nextStage()">Trust 💖</button>
+        <button onclick="wrong()">Popularity 👀</button>
+        `;
+    }
+
+    else if(stage === 2){
+        game.innerHTML = `
+        <div class="progress-bar">
+            <div class="progress" style="width:66%"></div>
+        </div>
+        <h3>Chapter 2 🫂</h3>
+        <p>Home is not a place… it is?</p>
+        <button onclick="nextStage()">A person who stays 🤍</button>
+        <button onclick="wrong()">WiFi 😭</button>
+        `;
+    }
+
+    else if(stage === 3){
+        game.innerHTML = `
+        <div class="progress-bar">
+            <div class="progress" style="width:99%"></div>
+        </div>
+        <h3>Chapter 3 🫂</h3>
+        <p>If someone could always make you smile, even on your hardest days... would you want them by your side forever?</p>
+        <button onclick="nextStage()">ALWAYS 💕</button>
+        <button onclick="wrong()">Yes 🥹</button>
+        `;
+    }
+
+    else if(stage === 4){
+        finalQuestion();
+    }
+}
+
+function wrong(){
+    alert("Oops 😅 Try the sweeter answer 💕");
+}
+
+function finalQuestion(){
+    const game = document.getElementById("game");
+    game.innerHTML = `
+    <h2 class="glow">Final Destiny 💕</h2>
+    <p>Ruth Muthoni Maina…</p>
+    <h3>Will you be my best friend? 🥹✨</h3>
+    <button onclick="achievement()">YES 💖</button>
+    <button onclick="achievement()">NOT SURE 💞</button>
+    `;
+}
+
+function achievement(){
+    translated = false;
+    const game = document.getElementById("game");
+    game.innerHTML = `
+    <h1 class="glow">🏆 Achievement Unlocked 🏆</h1>
+    <h2>Forever Best Friends 💕</h2>
+
+    <div id="specialMessage">
+    Y si algún día las palabras no me salen,<br>
+    que sepas esto:<br>
+    te agradezco con todo mi corazón 💔➡️❤️.<br><br>
+    Eres una respuesta de Dios a una oración que lloré en silencio 😭🙏.<br>
+    Gracias por quedarte, por elegirme, por ser hogar 🫂.<br>
+    Te quiero para siempre, mi mejor amiga 💋✨
+    </div>
+
+    <button onclick="translate()">Translate 🌎</button>
+
+    <p><b>Forever yours,<br>Essie 💌</b></p>
+    `;
+
+    launchConfetti();
+}
+   
+function launchConfetti(){
+    for(let i=0;i<40;i++){
+        let confetti=document.createElement("div");
+        confetti.classList.add("confetti");
+        confetti.style.left=Math.random()*100+"vw";
+        confetti.style.backgroundColor=["#ff8fab","#ffd6e8","#e0c3fc"][Math.floor(Math.random()*3)];
+        confetti.style.animationDuration=(Math.random()*3+2)+"s";
+        document.body.appendChild(confetti);
+        setTimeout(()=>confetti.remove(),4000);
+    }
+}
+</script>
+
+</body>
+</html>
